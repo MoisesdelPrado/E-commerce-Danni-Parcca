@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  Product_name    String   @unique(map: "Product_name") @default("Missing_name") @db.VarChar(50)
+  Id              Int      @id @default(autoincrement())
+  Description     String?  @db.VarChar(500)
+  Category        String   @default("Missing_Category") @db.VarChar(50)
+  Flavor          String   @default("Missing_Flavor") @db.VarChar(50)
+  Price           Decimal  @default(0.00) @db.Decimal(10, 2)
+  Rating          Decimal? @db.Decimal(10, 2)
+  NumberOfRatings Int?
+  In_Stock        Boolean?
+  Image_src       String?  @db.VarChar(2000)
+}
+
+model Users {
+  Username  String    @unique(map: "Username") @db.VarChar(50)
+  email     String?   @unique(map: "email") @db.VarChar(50)
+  Id        Int       @id @default(autoincrement())
+  Password  String?   @db.VarChar(50)
+  Admin     Boolean?
+  createdAt DateTime? @db.DateTime(0)
+  updatedAt DateTime? @db.DateTime(0)
+  Image_src String?   @db.VarChar(2000)
+}

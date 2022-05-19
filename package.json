@@ -9,9 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^3.14.0",
+    "@types/express": "^4.17.13",
+    "autoprefixer": "^10.4.7",
+    "express": "^4.18.1",
+    "html-react-parser": "^1.4.12",
+    "mysqljs": "^0.0.2-security",
     "next": "12.1.6",
+    "next-auth": "^4.3.4",
+    "postcss": "^8.4.13",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "sass": "^1.51.0"
   },
   "devDependencies": {
     "@types/node": "17.0.31",
@@ -19,6 +28,10 @@
     "@types/react-dom": "18.0.3",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
+    "nodemon": "^2.0.16",
+    "prisma": "^3.14.0",
+    "tailwindcss": "^3.0.24",
+    "ts-node": "^10.7.0",
     "typescript": "4.6.4"
   }
 }
