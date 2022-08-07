@@ -12,7 +12,7 @@ model Product {
   Id              Int      @id @default(autoincrement())
   Description     String?  @db.VarChar(500)
   Category        String   @default("Missing_Category") @db.VarChar(50)
-  Flavor          String   @default("Missing_Flavor") @db.VarChar(50)
+  Product_line    String   @default("Missing_Flavor") @db.VarChar(50)
   Price           Decimal  @default(0.00) @db.Decimal(10, 2)
   Rating          Decimal? @db.Decimal(10, 2)
   NumberOfRatings Int?
@@ -25,7 +25,7 @@ model Users {
   email     String?   @unique(map: "email") @db.VarChar(50)
   Id        Int       @id @default(autoincrement())
   Password  String?   @db.VarChar(50)
-  Admin     Boolean?
+  User_type String?   @db.VarChar(50)
   createdAt DateTime? @db.DateTime(0)
   updatedAt DateTime? @db.DateTime(0)
   Image_src String?   @db.VarChar(2000)

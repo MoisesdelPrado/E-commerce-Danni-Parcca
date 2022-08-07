@@ -1,3 +1,47 @@
-productBox {
-    background-color: gray;
+#Summit {
+    border-top-left-radius: 1rem;
+}
+
+#Skyline {
+    border-top-right-radius: 1rem;
+}
+
+#main {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#SummitShowBox {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#FieldsShowBox {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#WaterfallShowBox {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#MeadowsShowBox {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#FarmlandShowBox {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#OffshoreShowBox {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#SkylineShowBox {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
