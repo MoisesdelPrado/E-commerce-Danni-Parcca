@@ -1,11 +1,10 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
 
-export default function Index() {
+export default function Admin() {
   const router = useRouter();
-  const { status } = useSession({
+  const { data: session, status } = useSession({
     required: true,
     onUnauthenticated() {
       // The user is not authenticated, handle it here.
@@ -19,3 +18,5 @@ export default function Index() {
   
   return "User is logged in";
 };
+
+Admin.auth = true;

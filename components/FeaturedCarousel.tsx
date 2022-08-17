@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ProductBox from './ProductBox';
+import { ProductInfo } from './../types';
 
 const responsive = {
   superLargeDesktop: {
@@ -22,7 +23,7 @@ const responsive = {
   },
 };
 
-const FeaturedCarousel = ({ featuredProducts }:any) => {
+const FeaturedCarousel = (featuredProducts:any) => {
 
   const customLeftArrow = (
     <div className="absolute arrow-btn left-0 text-center py-3 cursor-pointer bg-gray-600 rounded-full">
@@ -43,13 +44,14 @@ const FeaturedCarousel = ({ featuredProducts }:any) => {
   return (
     <div className="mt-36 mx-auto w-3/4">
       <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass="px-4">
-        {featuredProducts
+        { featuredProducts && 
+        (featuredProducts
         .filter((product:any) => product.Product_line == "Summit")
         .map((product:any) => (
           <div className="h-1/4 w-5/6">
             <ProductBox key={product.Id} product={product} />
           </div>
-        ))}
+        )))}
       </Carousel>
     </div>
   );

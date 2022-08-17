@@ -1,10 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+import { ProductInfo } from '../types/index';
 
 
-const ProductBox = ({product}: any) => {
+const ProductBox = (prod: ProductInfo) => {
 
-  const { Product_name, Category, Image_src } = product;  
+  const { Product_name, Category, Image_src } = prod;  
 
   return (
       <div className="container bg-gray-50 mx-auto shadow-xl border-2 rounded-2xl p-4 flex flex-col hover:scale-110 hover:transition-transform ease-in-out duration-300">

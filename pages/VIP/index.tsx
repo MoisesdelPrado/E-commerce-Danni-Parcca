@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
 
@@ -14,7 +13,7 @@ export default function Index() {
   
   if (status === "loading") {
     return "Redirecting to Login...";
-  }
+  };
   
   return "User is logged in";
 };

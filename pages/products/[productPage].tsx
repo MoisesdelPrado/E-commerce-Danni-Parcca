@@ -3,8 +3,9 @@ import { prisma } from '../../lib/prisma'
 import { NextPage, GetServerSideProps, GetStaticProps, GetStaticPaths } from 'next';
 import { Header, Footer, IndividualProductCard } from '../../components';
 import { useRouter } from 'next/router';
+import { ProductProps } from './../../types/index';
 
-const productPage: NextPage = ({ product }: any) => {
+const productPage: NextPage<ProductProps> = ({ product }) => {
 
   const router = useRouter();
   const { Product_name, Description, Category, Product_line, Price, In_Stock, Image_src, Id } = product;

@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ProductInfo } from './../types/index';
 
-const ShoppingCartItem = ({item}:any) => {
+const ShoppingCartItem = (item:ProductInfo) => {
 
 const { Product_name, Description, Category, Product_line, Price, In_Stock, Image_src, Id } = item;
 

@@ -3,9 +3,10 @@ import { Context } from '../pages/_app';
 import ShoppingCartItem from './ShoppingCartItem';
 import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import { ProductInfo } from './../types/index'
 
 //current items are sample only, change to actual cart items
-const ShoppingCart = ({cartItems}:any) => {
+const ShoppingCart = (cartItems:any) => {
 
   const context:any = useContext(Context);
 
@@ -22,15 +23,16 @@ const ShoppingCart = ({cartItems}:any) => {
           </h1>
         </div>
       </div>
-        {cartItems
-          .filter((item:any) => item.Product_line == "Summit")
-          .map((item:any) => {
+        { cartItems &&
+        (cartItems
+          .filter((item:ProductInfo) => item.Product_line == "Summit")
+          .map((item:ProductInfo) => {
             return (
               <div>
                   <a><ShoppingCartItem key={item.Id} item={item} /></a>
               </div>
             )
-          })}
+          }))}
     </div>
   )
 }

@@ -5,41 +5,41 @@ import { Context } from './_app';
 import { prisma } from '../lib/prisma';
 import { Header, Footer, ProductLines, ShoppingCart, FeaturedCarousel } from '../components';
 import { Drawer } from '@mui/material';
-import { ProductInfo } from '../types/index';
+import { ProductArray } from '../types/index';
 
-export default const Home: NextPage = (products) => {
+const Home: NextPage<ProductArray> = ({ products }) => {
 
   const { data: session, status } = useSession();
-  const [cartOpen, setCartOpen] = useState(false);
+  const loading = status === "loading";
+  const [ cartOpen, setCartOpen ] = useState(false);
   const context:any = useContext(Context);
 
   return (
     <div className="h-screen w-full flex flex-col">
       {session && (
         <>
-          Not Signed in
+          <Header />
+          <Drawer anchor="right" open={cartOpen} onClose={() => context.dispatch({type:'setCartOpen', payload:false})}>
+            <ShoppingCart cartItems={products} />
+          </Drawer>
+          <ProductLines products={products} />
+          <FeaturedCarousel featuredProducts={products}/>
+          <div className="mx-auto my-20">
+            <button className="cursor-pointer border-2" onMouseDown={() => setCartOpen(true)}>OPEN CART</button>
+            <br></br>
+            <input type="checkbox"></input>
+            <br></br>
+            <input type="radio"></input>
+          </div>
+          <Footer />
         </>
       )}
       {session && (
           <>
-          Signed in as {session.user.email}
+          Signed in as {session}
           <button>Sign out</button>
           </>
       )}
-            <Header />
-            <Drawer anchor="right" open={cartOpen} onClose={() => context.dispatch({type:'setCartOpen', payload:false})}>
-              <ShoppingCart cartItems={products} />
-            </Drawer>
-            <ProductLines products={products} />
-            <FeaturedCarousel featuredProducts={products}/>
-            <div className="mx-auto my-20">
-              <button className="cursor-pointer border-2" onMouseDown={() => setCartOpen(true)}>OPEN CART</button>
-              <br></br>
-              <input type="checkbox"></input>
-              <br></br>
-              <input type="radio"></input>
-            </div>
-            <Footer />
     </div>
   )
 }
@@ -67,3 +67,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
+export default Home;

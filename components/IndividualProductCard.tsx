@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import { ProductInfo } from '../types/index';
 
-const IndividualProductCard = ({ productinfo }:any) => {
+const IndividualProductCard = (productinfo: ProductInfo) => {
 
   const { Product_name, Description, Category, Product_line, Price, In_Stock, Image_src, Id } = productinfo;
 

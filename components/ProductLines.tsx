@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import ProductBox from './ProductBox';
 import Link from 'next/link';
+import { ProductInfo } from '../types/index';
 
 
-const ProductLines = ({products}: any) => {
+const ProductLines = (products:any) => {
   
     
     const [main, showMain] = useState({display: "none"});
@@ -130,9 +131,12 @@ const ProductLines = ({products}: any) => {
                 </div>
           <div id="main" className="w-full mx-auto text-center align-center" style={main}>
               <div id="SummitShowBox" className="flex flex-row gap-5 w-full p-10 transition-transform ease-in-out delay-1000 duration-1000 bg-summit" style={summit}>
-                    {products
-                    .filter((product:any) => product.Product_line == "Summit")
-                    .map((product:any) => {
+                    {products == null?
+                    <div></div>
+                    :
+                    products
+                    .filter((product:ProductInfo) => product.Product_line == "Summit")
+                    .map((product:ProductInfo) => {
                       return (
                         <div>
                           <Link 
@@ -143,16 +147,17 @@ const ProductLines = ({products}: any) => {
                           }}
                           as={`products/${product.Product_name}`}
                           >
-                            <a><ProductBox key={product.Id} product={product} /></a>
+                            <a><ProductBox key={product.Id} prod={product} /></a>
                           </Link>
                         </div>
                       )
                     })}
               </div>
             <div id="FieldsShowBox" className="flex flex-row gap-5 w-full p-10 transition-transform bg-fields" style={fields}>
-                  {products
-                    .filter((product:any) => product.Product_line == "Fields")
-                    .map((product:any) => {
+                  { products &&
+                    (products
+                    .filter((product:ProductInfo) => product.Product_line == "Fields")
+                    .map((product:ProductInfo) => {
                       return (
                         <div>
                           <Link 
@@ -163,16 +168,17 @@ const ProductLines = ({products}: any) => {
                           }}
                           as={`products/${product.Product_name}`}
                           >
-                            <a><ProductBox key={product.Id} product={product} /></a>
+                            <a><ProductBox key={product.Id} prod={product} /></a>
                           </Link>
                         </div>
                       )
-                    })}
+                    }))}
             </div>
               <div id="WaterfallShowBox" className="flex flex-row gap-5 w-full p-10 transition-transform bg-waterfall" style={waterfall}>
-                    {products
-                      .filter((product:any) => product.Product_line == "Waterfall")
-                      .map((product:any) => {
+                    { products &&
+                    (products
+                      .filter((product:ProductInfo) => product.Product_line == "Waterfall")
+                      .map((product:ProductInfo) => {
                         return (
                           <div>
                             <Link 
@@ -183,16 +189,17 @@ const ProductLines = ({products}: any) => {
                             }}
                             as={`products/${product.Product_name}`}
                             >
-                              <a><ProductBox key={product.Id} product={product} /></a>
+                              <a><ProductBox key={product.Id} prod={product} /></a>
                             </Link>
                           </div>
                         )
-                      })}
+                      }))}
               </div>
               <div id="MeadowsShowBox" className="flex flex-row gap-5 w-full p-10 transition-transform bg-meadows" style={meadows}>
-                    {products
-                      .filter((product:any) => product.Product_line == "Meadows")
-                      .map((product:any) => {
+                    { products &&
+                    (products
+                      .filter((product:ProductInfo) => product.Product_line == "Meadows")
+                      .map((product:ProductInfo) => {
                         return (
                           <div>
                             <Link 
@@ -203,16 +210,17 @@ const ProductLines = ({products}: any) => {
                             }}
                             as={`products/${product.Product_name}`}
                             >
-                              <a><ProductBox key={product.Id} product={product} /></a>
+                              <a><ProductBox key={product.Id} prod={product} /></a>
                             </Link>
                           </div>
                         )
-                      })}
+                      }))}
               </div>
               <div id="FarmlandShowBox" className="flex flex-row gap-5 w-full p-10 transition-transform bg-farmland" style={farmland}>
-                    {products
-                      .filter((product:any) => product.Product_line == "Farmland")
-                      .map((product:any) => {
+                    { products &&
+                    (products
+                      .filter((product:ProductInfo) => product.Product_line == "Farmland")
+                      .map((product:ProductInfo) => {
                         return (
                           <div>
                             <Link 
@@ -223,16 +231,17 @@ const ProductLines = ({products}: any) => {
                             }}
                             as={`products/${product.Product_name}`}
                             >
-                              <a><ProductBox key={product.Id} product={product} /></a>
+                              <a><ProductBox key={product.Id} prod={product} /></a>
                             </Link>
                           </div>
                         )
-                      })}
+                      }))}
               </div>
               <div id="OffshoreShowBox" className="flex flex-row gap-5 w-full p-10 transition-transform bg-offshore" style={offshore}>
-                    {products
-                      .filter((product:any) => product.Product_line == "Offshore")
-                      .map((product:any) => {
+                    {products &&
+                    (products
+                      .filter((product:ProductInfo) => product.Product_line == "Offshore")
+                      .map((product:ProductInfo) => {
                         return (
                           <div>
                             <Link 
@@ -243,16 +252,17 @@ const ProductLines = ({products}: any) => {
                             }}
                             as={`products/${product.Product_name}`}
                             >
-                              <a><ProductBox key={product.Id} product={product} /></a>
+                              <a><ProductBox key={product.Id} prod={product} /></a>
                             </Link>
                           </div>
                         )
-                      })}
+                      }))}
               </div>
               <div id="SkylineShowBox" className="flex flex-row gap-5 w-full p-10 transition-transform bg-skyline" style={skyline}>
-                    {products
-                      .filter((product:any) => product.Product_line == "Skyline")
-                      .map((product:any) => {
+                    { products &&
+                    (products
+                      .filter((product:ProductInfo) => product.Product_line == "Skyline")
+                      .map((product:ProductInfo) => {
                         return (
                           <div>
                             <Link 
@@ -263,11 +273,11 @@ const ProductLines = ({products}: any) => {
                             }}
                             as={`products/${product.Product_name}`}
                             >
-                              <a><ProductBox key={product.Id} product={product} /></a>
+                              <a><ProductBox key={product.Id} prod={product} /></a>
                             </Link>
                           </div>
                         )
-                      })}
+                      }))}
               </div>
           </div>
       </div>
